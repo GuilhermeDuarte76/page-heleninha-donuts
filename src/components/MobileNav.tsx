@@ -41,7 +41,11 @@ export default function MobileNav({ cartCount, onOpenCart }: MobileNavProps) {
   return (
     <nav
       className="md:hidden fixed bottom-0 left-0 right-0 z-[200] bg-white border-t border-rosa-claro"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      style={{
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        transform: 'translateZ(0)',
+        WebkitTransform: 'translateZ(0)',
+      }}
       aria-label="Navegação mobile"
     >
       <div className="grid grid-cols-3 h-16">

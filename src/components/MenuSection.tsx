@@ -25,6 +25,13 @@ export default function MenuSection({ getQuantity, addItem, removeItem }: MenuSe
     const el = headingRef.current;
     if (!el) return;
 
+    // Se já está visível no carregamento, anima imediatamente
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      setHeadingVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -32,7 +39,7 @@ export default function MenuSection({ getQuantity, addItem, removeItem }: MenuSe
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' }
     );
 
     observer.observe(el);
