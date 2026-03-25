@@ -12,8 +12,39 @@ function DonutVideo({ size }: { size: number }) {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.muted = true;
-    video.play().catch(() => {});
+
+    const forcePlay = () => {
+      video.muted = true;
+      video.play().catch(() => {});
+    };
+
+    // Tenta em múltiplos eventos para cobrir Safari e outros navegadores
+    forcePlay();
+    video.addEventListener('loadedmetadata', forcePlay);
+    video.addEventListener('canplay', forcePlay);
+    video.addEventListener('loadeddata', forcePlay);
+
+    // Se a aba estava em background e voltou ao foco, retoma
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') forcePlay();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+
+    // Primeiro toque/clique na página também dispara (fallback para Safari iOS)
+    const onInteraction = () => {
+      forcePlay();
+      document.removeEventListener('touchstart', onInteraction);
+      document.removeEventListener('click', onInteraction);
+    };
+    document.addEventListener('touchstart', onInteraction, { once: true });
+    document.addEventListener('click', onInteraction, { once: true });
+
+    return () => {
+      video.removeEventListener('loadedmetadata', forcePlay);
+      video.removeEventListener('canplay', forcePlay);
+      video.removeEventListener('loadeddata', forcePlay);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, []);
 
   return (
@@ -24,6 +55,7 @@ function DonutVideo({ size }: { size: number }) {
       loop
       muted
       playsInline
+      preload="auto"
       controls={false}
       className="animate-float"
       style={{

@@ -10,7 +10,7 @@ import {
   CardIcon,
 } from './Icons';
 
-const WHATSAPP_NUMBER = '5511999999999'; // Substitua pelo número real
+const WHATSAPP_NUMBER = '5534992563972';
 
 interface CartDrawerProps {
   isOpen: boolean;
