@@ -1,4 +1,5 @@
 
+import { useEffect, useRef } from 'react';
 import donnutsVideo from '../assets/donnuts.mp4';
 
 interface HeroProps {
@@ -6,13 +7,24 @@ interface HeroProps {
 }
 
 function DonutVideo({ size }: { size: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
+
   return (
     <video
+      ref={videoRef}
       src={donnutsVideo}
       autoPlay
       loop
       muted
       playsInline
+      controls={false}
       className="animate-float"
       style={{
         width: `${size}px`,
