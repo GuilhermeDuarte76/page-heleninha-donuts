@@ -1,5 +1,15 @@
 import type { Product } from '../types';
 
+import NinhoComMorango from '../assets/NinhoComMorango.jpg';
+import NutellaComMorango from '../assets/NutellaComMorango.jpg';
+import Nutella from '../assets/Nutella.jpg';
+import CremeDeLimao from '../assets/CremeDeLimao.jpg';
+import Churros from '../assets/Churros.jpg';
+import Negresco from '../assets/Negresco.jpg';
+import Sonho from '../assets/Sonho.jpg';
+import ChocolatePretoComGranulado from '../assets/ChocolatePretoComGranulado.jpg';
+import ChocolateBrancoComGranulado from '../assets/ChocolateBrancoComGranulado.jpg';
+
 export const products: Product[] = [
   {
     id: 1,
@@ -7,7 +17,7 @@ export const products: Product[] = [
     description: 'Puro Ninho, Puro Sabor — Ninho com Morango fresquinho.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/ninho_morango.png',
+    image: NinhoComMorango,
   },
   {
     id: 2,
@@ -15,7 +25,7 @@ export const products: Product[] = [
     description: 'O Clássico Irresistível — Nutella com Morangos frescos.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/morango_nutella.png',
+    image: NutellaComMorango,
   },
   {
     id: 3,
@@ -23,7 +33,7 @@ export const products: Product[] = [
     description: 'Recheio e cobertura generosa de Nutella autêntica.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/nutella.png',
+    image: Nutella,
   },
   {
     id: 4,
@@ -31,7 +41,7 @@ export const products: Product[] = [
     description: 'Delicioso recheio e cobertura de creme de limão.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/limao.jpg',
+    image: CremeDeLimao,
   },
   {
     id: 5,
@@ -39,7 +49,7 @@ export const products: Product[] = [
     description: 'Glaceado de canela e açúcar com recheio de doce de leite.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/churros.jpg',
+    image: Churros,
   },
   {
     id: 6,
@@ -47,7 +57,7 @@ export const products: Product[] = [
     description: 'Novo Sabor Supremo — Negresco Ultra Cremoso.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/negresco.jpg',
+    image: Negresco,
   },
   {
     id: 7,
@@ -55,7 +65,7 @@ export const products: Product[] = [
     description: 'O clássico sabor de sonho em formato de donut.',
     price: 13.50,
     category: 'Gourmet',
-    image: 'https://heleninhadonuts.shop/sonho.png',
+    image: Sonho,
   },
   {
     id: 8,
@@ -63,7 +73,7 @@ export const products: Product[] = [
     description: 'Cobertura de chocolate meio amargo com granulado crocante.',
     price: 8.50,
     category: 'Tradicional',
-    image: 'https://heleninhadonuts.shop/choco_leite.png',
+    image: ChocolatePretoComGranulado,
   },
   {
     id: 9,
@@ -71,6 +81,6 @@ export const products: Product[] = [
     description: 'Cobertura de chocolate branco com granulado colorido.',
     price: 8.50,
     category: 'Tradicional',
-    image: 'https://heleninhadonuts.shop/choco_branco.png',
+    image: ChocolateBrancoComGranulado,
   },
 ];
